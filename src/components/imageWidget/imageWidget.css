@@ -1,0 +1,11 @@
+.thumbnail {
+  width: 50px;
+}
+
+.text_only {
+  font-size: 25px;
+}
+
+.full_size {
+  width: 200px;
+}
