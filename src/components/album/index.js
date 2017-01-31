@@ -1,37 +1,67 @@
 import React, { PropTypes, Component } from 'react'
 import ImageWidget from '../imageWidget'
+import ImageForm from './imageForm'
 
 import styles from './album.scss'
-
-let uid = 0
+import genUid from '../../lib/uid'
 
 export default class Album extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      display: null
+      display: null,
+      images: props.images,
+      error: null
     }
-    this.handleChange = this.handleChange.bind(this)
+    this.changeDisplay = this.changeDisplay.bind(this)
+    this.newImage = this.newImage.bind(this)
   }
 
-  handleChange(e) {
-    let display = e.target.value
-    this.setState({display})
+  changeDisplay(e) {
+    const display = e.target.value
+    this.setState({ display })
+  }
+
+  newImage(e) {
+    e.preventDefault()
+    const t = e.target
+    const url = t.url.value
+    const description = t.description.value
+
+    this.setState({ images: [...this.state.images, { url, description }] })
+
+    t.reset()
   }
 
   render() {
-    let widgets = this.props.images.map(i => (
-      <ImageWidget {...i} key={++uid} display={this.state.display} />))
-    widgets = this.state.display === 'full' ? widgets.slice(0, 3) : widgets
+    const { images, display, error } = this.state
+    let widgets = images.map(img => (
+      <ImageWidget {...img} key={genUid()} display={display} />))
+    widgets = display === 'full' ? widgets.slice(0, 3) : widgets
 
-    return <section className={styles.album}>
-            <form onChange={this.handleChange}>
-              <label><input type="radio" name="display" value="thumb"/><span>Thumbnail</span></label>
-              <label><input type="radio" name="display" value="full"/><span>Fullsize</span></label>
-                  <label><input type="radio" name="display" value="text"/><span>Description</span></label>
-            </form>
-            <ul>{widgets}</ul>
-           </section>
+    return (
+      <section className={styles.album}>
+        <form onChange={this.changeDisplay}>
+          <label htmlFor="thumb">
+            <input type="radio" name="display" value="thumb" id="thumb" />
+            <span>Thumbnail</span>
+          </label>
+
+          <label htmlFor="full">
+            <input type="radio" name="display" value="full" id="full" />
+            <span>Fullsize</span>
+          </label>
+
+          <label htmlFor="description">
+            <input type="radio" name="display" value="text" id="description" />
+            <span>Description</span>
+          </label>
+        </form>
+
+        <ImageForm newImage={this.newImage} error={error} />
+        <ul>{widgets}</ul>
+      </section>
+    )
   }
  }
 
