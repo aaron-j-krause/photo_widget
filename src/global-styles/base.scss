@@ -1,0 +1,12 @@
+
+@import url('https://fonts.googleapis.com/css?family=Bitter|Raleway');
+$header-font: Bitter, serif;
+$body-font: Raleway, sans-serif;
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header-font;
+}
+
+p, button, input, label {
+  font-family: $body-font;
+}

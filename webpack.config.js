@@ -24,13 +24,9 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
+        test: /\.s?css$/,
         loader: ExtractTextPlugin.extract({
-          loader: 'css-loader',
-            query: {
-              modules: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]'
-            }
+          loader: 'css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader'
         })
       }
     ]

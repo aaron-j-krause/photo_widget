@@ -1,0 +1,29 @@
+.album {
+  padding: 20px;
+  height: 300px;
+  width: 600px;
+  border: 1px solid blue;
+  input[type=radio] {
+    display: none;
+  }
+
+  label {
+    margin-left: 15px;
+    cursor: pointer;
+    &:hover {
+      color: #66f;
+    }
+  }
+
+ :checked + span {
+    color: #66f;
+    font-weight: bold;
+  }
+
+  ul {
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+}

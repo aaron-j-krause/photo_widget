@@ -1,6 +1,8 @@
 import React, { PropTypes, Component } from 'react'
 import ImageWidget from '../imageWidget'
 
+import styles from './album.scss'
+
 let uid = 0
 
 export default class Album extends Component {
@@ -18,17 +20,15 @@ export default class Album extends Component {
   }
 
   render() {
-    let widgets = this.props.images.map(i => <ImageWidget
-                                              {...i}
-                                              key={++uid}
-                                              display={this.state.display}
-                                             />)
+    let widgets = this.props.images.map(i => (
+      <ImageWidget {...i} key={++uid} display={this.state.display} />))
+    widgets = this.state.display === 'full' ? widgets.slice(0, 3) : widgets
 
-    return <section>
+    return <section className={styles.album}>
             <form onChange={this.handleChange}>
-              <label><input type="radio" name="display" value="thumb"/>Thumbnail</label>
-              <label><input type="radio" name="display" value="full"/>Fullsize</label>
-              <label><input type="radio" name="display" value="text"/>Description</label>
+              <label><input type="radio" name="display" value="thumb"/><span>Thumbnail</span></label>
+              <label><input type="radio" name="display" value="full"/><span>Fullsize</span></label>
+                  <label><input type="radio" name="display" value="text"/><span>Description</span></label>
             </form>
             <ul>{widgets}</ul>
            </section>
