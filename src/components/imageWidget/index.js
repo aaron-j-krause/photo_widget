@@ -18,7 +18,6 @@ export default class ImageWidget extends Component {
       thumb: <Thumbnail url={url} description={description} />,
       text: <TextOnly description={description} />
     }
-    console.log(this.props)
     return (
       <li>
         {displayOptions[display]}
