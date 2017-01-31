@@ -28,7 +28,13 @@ export default class Album extends Component {
     const url = t.url.value
     const description = t.description.value
 
-    this.setState({ images: [...this.state.images, { url, description }] })
+    const urlIsh = /(www\.)?(\w*\/?)\.\w*/g.test(url)
+    const extIsh = /(png|jpg|jpeg|gif)$/g.test(url)
+    const error = (!urlIsh && 'url') || (!extIsh && 'img') || null
+
+    if (error) return this.setState({ error })
+
+    this.setState({ error, images: [...this.state.images, { url, description }] })
 
     t.reset()
   }

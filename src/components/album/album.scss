@@ -26,6 +26,10 @@
     flex-flow: row wrap;
     justify-content: center;
   }
+  form > span {
+    display: block;
+    color: red;
+  }
 
   .hidden {
     display: none;
