@@ -6,7 +6,7 @@ chai.use(chaiEnzyme())
 
 import ImageWidget, {
   FullSize, TextOnly, Thumbnail
-} from '../../src/components/imageWidget'
+} from '../../../src/components/imageWidget'
 
 describe('<ImageWidget />', () => {
   let testProps
