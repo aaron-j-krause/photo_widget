@@ -4,6 +4,8 @@ import FullSize from './fullSize'
 import Thumbnail from './thumbnail'
 import TextOnly from './textOnly'
 
+export { FullSize, Thumbnail, TextOnly }
+
 export default class ImageWidget extends Component {
   constructor(props) {
     super(props)
@@ -30,3 +32,4 @@ ImageWidget.propTypes = {
   description: PropTypes.string,
   display: PropTypes.string
 }
+
