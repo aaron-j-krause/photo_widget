@@ -9,12 +9,16 @@ export default class Album extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      display: null,
+      display: 'thumb',
       images: props.images,
       error: null
     }
     this.changeDisplay = this.changeDisplay.bind(this)
     this.newImage = this.newImage.bind(this)
+  }
+  // fix, ugly
+  componentDidMount() {
+    document.getElementById('thumb').click()
   }
 
   changeDisplay(e) {
