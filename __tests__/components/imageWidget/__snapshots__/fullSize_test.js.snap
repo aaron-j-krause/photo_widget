@@ -1,0 +1,6 @@
+exports[`test FullSize snapshot 1`] = `
+<img
+  alt="test_description"
+  className={undefined}
+  src="test_url" />
+`;

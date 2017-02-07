@@ -5,9 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "test:components": "./node_modules/mocha/bin/mocha --compilers css:./test/components/lib/compiler test/components/**/*_test.js",
     "build": "./node_modules/webpack/bin/webpack.js",
     "serve": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
+    }
   },
   "keywords": [],
   "author": "",
@@ -25,7 +30,6 @@
     "extract-text-webpack-plugin": "^2.0.0-beta.5",
     "html-webpack-plugin": "^2.26.0",
     "jest": "^18.1.0",
-    "mocha": "^3.2.0",
     "node-sass": "^4.4.0",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
