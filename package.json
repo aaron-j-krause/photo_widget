@@ -4,7 +4,7 @@
   "description": "This is an app called bunny_widget",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "test:components": "./node_modules/mocha/bin/mocha --compilers css:./test/components/lib/compiler test/components/**/*_test.js",
     "build": "./node_modules/webpack/bin/webpack.js",
     "serve": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline"
@@ -24,11 +24,13 @@
     "enzyme": "^2.7.1",
     "extract-text-webpack-plugin": "^2.0.0-beta.5",
     "html-webpack-plugin": "^2.26.0",
+    "jest": "^18.1.0",
     "mocha": "^3.2.0",
     "node-sass": "^4.4.0",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-test-renderer": "^15.4.2",
     "sass-loader": "^4.1.1",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^1.16.2"
