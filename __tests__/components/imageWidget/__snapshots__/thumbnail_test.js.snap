@@ -1,4 +1,4 @@
-exports[`test Should render correctly 1`] = `
+exports[`test should render correctly 1`] = `
 <img
   alt="test_description"
   className={undefined}

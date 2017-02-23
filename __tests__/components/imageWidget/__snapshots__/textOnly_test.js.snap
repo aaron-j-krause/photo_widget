@@ -1,0 +1,6 @@
+exports[`test Should render description as text 1`] = `
+<h4
+  className={undefined}>
+  test
+</h4>
+`;

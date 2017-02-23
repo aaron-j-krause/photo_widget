@@ -5,7 +5,7 @@ import FullSize from '../../../src/components/imageWidget/fullSize'
 
 const testProps = { description: 'test_description', url: 'test_url' }
 
-test('FullSize snapshot', () => {
+test('Should render correctly', () => {
   const rendered = renderer.create(<FullSize {...testProps} />)
 
   expect(rendered).toMatchSnapshot()
